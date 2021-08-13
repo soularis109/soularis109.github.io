@@ -1,12 +1,16 @@
 import React from 'react';
+import './film.css';
+import FilmsPage from "./FilmsPage";
+import {MOVIE_ROUTE} from "../../utils/consts";
+import {useHistory} from "react-router-dom";
 
-const Film = ({title,title_long,cover}) => {
+
+const Film = ({cover, id}) => {
+    const history = useHistory();
     return (
-        <div>
-            <div>{title}</div>
-            <h1>{title_long}</h1>
-            <div>
-                <img src={cover}/>
+        <div className='container'>
+            <div className='col_rows'>
+                    <img src={cover} className='img' onClick={() => history.push(MOVIE_ROUTE + '/' + id)}/>
             </div>
         </div>
     );

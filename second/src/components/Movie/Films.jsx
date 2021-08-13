@@ -1,27 +1,31 @@
-import React from 'react';
-import axios from "axios";
+import React, {useEffect} from 'react';
 import Film from "./Film";
+import './films.css';
+import {useDispatch, useSelector} from "react-redux";
+import {getMovies} from "../redux/films-reducer";
+import {useHistory} from "react-router-dom";
+import {MOVIE_ROUTE} from "../../utils/consts";
 
-const Films = () => {
-    axios.get(`https://yts.mx/api/v2/list_movies.json`)
-        .then(response => {
-            console.log(response.data.data.movies)
-        })
-    const films = [
-        {id: 34341, url: "https://yts.mx/movies/brave-2007", imdb_code: "tt1149582",
-            title: "Brave", title_english: "Brave", background_image: "https://yts.mx/assets/images/movies/brave_2007/background.jpg",
-            background_image_original: "https://yts.mx/assets/images/movies/brave_2007/background.jpg",
-            large_cover_image: "https://yts.mx/assets/images/movies/brave_2007/large-cover.jpg",
-            title_long: "Brave (2007)"}
-    ]
+const Films = ({movie}) => {
+    const films = useSelector(state => state.movies.films)
+    const dispatch = useDispatch();
+
+
+   useEffect(() => {
+       dispatch(getMovies())
+   }, [])
+
     return (
-        <div>
-            {films.map(film => <Film
+        <div className='container'>
+            {films.map(film => <Film key={film.id}
+                id={film.id}
                 title={film.title}
                 title_long={film.title_long}
-                cover={film.large_cover_image}
+                cover={film.large_cover_image} description={film.description_full}
             />)}
+
         </div>
+
     );
 };
 

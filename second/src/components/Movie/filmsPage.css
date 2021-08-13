@@ -1,0 +1,36 @@
+.container__movie {
+    display: flex;
+}
+
+.col {
+    border: 1px solid white;
+}
+
+.title__movie {
+
+    font-size: 36px;
+    color: white;
+}
+.img__movie {
+    padding: 50px;
+    width: 450px;
+    height: 600px;
+}
+
+.title_long {
+    font-size: 16px;
+    color: white;
+    padding-top: 45px;
+}
+
+.description {
+    color: white;
+    padding-top: 50px;
+    width: 500px;
+}
+
+.comments {
+    font-size: 36px;
+    color: white;
+    padding-top: 25px;
+}
