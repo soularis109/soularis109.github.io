@@ -1,4 +1,10 @@
 .pages {
     font-weight: bold;
-    padding: 5px;
+    color: white;
+
 }
+.page {
+    color: white;
+    border: 1px solid white;
+}
+

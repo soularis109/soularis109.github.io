@@ -30,17 +30,24 @@ const Pagination = ({portionSize = 3}) => {
     }
     return (
 
-            <div>
+        <div>
 
-                {portionNumber > 1 && <button onClick={() => {
-                    setPortionNumber(portionNumber - 1)
-                }}>Prev</button>}
+            {portionNumber > 1 && <button onClick={() => {
+                setPortionNumber(portionNumber - 1)
+            }}>Prev</button>}
 
-                {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-                    .map((p) => {return <span className={currentPage === p && 'pages'}
-                    onClick={(e) => {onPages(p)}}>{p}</span>})}
-                {portionCount  > portionNumber && <button onClick={() => {setPortionNumber(portionNumber + 1)}}>Next</button>}
-            </div>
+            {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map((p) => {
+                    return <span className={currentPage === p && 'pages'}
+                          onClick={(e) => {
+                              onPages(p)
+                          }}>{p}</span>
+
+                })}
+            {portionCount > portionNumber && <button onClick={() => {
+                setPortionNumber(portionNumber + 1)
+            }}>Next</button>}
+        </div>
 
     );
 };

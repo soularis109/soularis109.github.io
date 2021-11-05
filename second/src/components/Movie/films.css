@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    background: black;
+    height: 50px;
+}
+.pagination {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 50px;
+}
+.navbar__name {
+    font-size: 32px;
+    padding-left: 50px;
+    color: white;
+
+}
+
+.movie__select {
+    margin-left: 50px;
+}
